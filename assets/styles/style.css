@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	/* background: #2f7b7f; */
+	background: url(../images/bg_abstract1_blue.png) no-repeat center center fixed; 
+	color: #fff;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	overflow: hidden;
+	/* text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000; */
+	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-text-size-adjust: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 2px solid #fff;
+}
+img {
+	margin: 0;
+}
+table {
+	/* border: 1px solid #0f0; */
+	table-layout: fixed;
+}
+.clearfix:before,
+.clearfix:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+#opening {
+	background: #000;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+#opening_credits {
+	height: 100%;
+	text-align: center;
+	width: 100%;
+}
+#opening_credits > div {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+}
+#opening_credits > div div:first-child {
+	font-family: "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+#opening_credits > div div:first-child span {
+	font-size: 12px;
+	font-weight: normal;
+}
+#opening_credits > div div:last-child {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 2;
+}
+#opening_credits > div div:last-child p {
+	margin: 1em 0;
+}
+#opening_credits > div div:last-child > div {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+#opening_credits div a:hover {
+	color: #d93725;
+	border-bottom: 2px solid #d93725;
+}
+#opening_title {
+	background: url(../images/bg_abstract2_green.png) no-repeat center center fixed; 
+	display: none;
+	height: 100%;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#opening_title_logo {
+	margin-top: -240px;
+	position: absolute;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	top: 50%;
+	width: 100%;
+}
+#opening_title_logo div {
+	color: #fff;
+	font-size: 40px;
+}
+#opening_title_logo span {
+	color: #d93725;
+	font-size: 80px;
+}
+#opening_title_menu > div:first-child {
+	font-size: 24px;
+	margin-top: 40px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+}
+#opening_title_menu > div > div {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 2;
+	margin-top: 80px;
+	text-align: left;
+}
+#opening_title_menu > div:last-child {
+	bottom: 8px;
+	font-size: 16px;
+	position: absolute;
+	right: 8px;
+}
+#eyecatch {
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	text-align: center;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 9999;
+}
+#eyecatch div {
+	font-size: 80px;
+	font-weight: bold;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+}
+.player_menu {
+	display: none;
+	padding: 4px;
+	position: absolute;
+	right: 100px;
+	bottom: 120px;
+}
+#dialog {
+	display: none;
+}
+.dialog_wrapper {
+	background: rgba(0, 0, 0, 0.8);
+	height: 400px;
+	left: 50%;
+	line-height: 1.6;
+	margin-left: -200px;
+	margin-top: -200px;
+	position: absolute;
+	top: 50%;
+	width: 400px;
+	z-index: 1;
+}
+.dialog {
+	padding: 8px;
+}
+#dialog_next {
+	border-bottom: 2px solid #fff;
+	bottom: 8px;
+	position: absolute;
+	right: 8px;
+}
+#bonus {
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+#bonus div {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+}
+#ending {
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+#ending div {
+	font-size: 24px;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+}
+#riichi_bottom,
+#riichi_right,
+#riichi_top,
+#riichi_left {
+	display: none;
+}
+#effect {
+	display: none;
+	position: absolute;
+	z-index: 9;
+}
+#table img {
+	vertical-align: middle;
+}
+.pai32 {
+	max-height: 32px;
+	max-width: 32px;
+}
+.pai48 {
+	max-height: 48px;
+	max-width: 48px;
+}
+.riichi {
+	max-height: 68px;
+	max-width: 68px;
+}
+.ten {
+	max-height: 24px;
+	max-width: 24px;
+}
+#dialog img {
+	max-height: 32px;
+	max-width: 32px;
+}
+.chara {
+	background: rgba(0, 0, 0, 0.4);
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+.chara_top,
+.chara_left {
+	left: 24px;
+}
+.chara_top,
+.chara_right {
+	top: 24px;
+}
+.chara_right,
+.chara_bottom {
+	left: -24px;
+}
+.chara_left,
+.chara_bottom {
+	top: -24px;
+}
+.chara_img {
+	background: no-repeat center top;
+	height: 300px;
+	width: 200px;
+}
+.chara_data {
+	background: rgba(0, 0, 0, 0.4);
+	bottom: 0px;
+	font-weight: bold;
+	position: absolute;
+	/* text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000; */
+	width: 100%;
+}
+.chara_data div {
+	padding: 2px 8px;
+}
+.chara_score {
+	font-size: 24px;
+}
+.chara_name {
+	font-size: 16px;
+}
+.data {
+	/* background: rgba(0, 0, 0, 0.2); */
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.6;
+}
+.kaze {
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	vertical-align: middle;
+	width: 32px;
+}
+.kaze_top {
+	transform: rotate(180deg);
+}
+.kaze_left {
+	transform: rotate(90deg);
+}
+.kaze_right {
+	transform: rotate(-90deg);
+}
+
+.field img {
+	position: relative;
+}
+.field td {
+	line-height: 0;
+}
+#pai_cnt {
+	font-size: 20px;
+}
+
