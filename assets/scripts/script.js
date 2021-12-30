@@ -752,14 +752,12 @@ var MAHJONG = (function() {
 		var s;
 		s = kazeStrTbl[Math.floor(gameCnt / nanpuSen)] + toKanji((gameCnt % 4 + 1)) + "局";
 		$("#eyecatch_game_cnt").html(s);
-		$("#eyecatch_game_cnt").attr("title", s);
 		if (renchanCnt > 0)
 			s = toKanji(renchanCnt) + "本場";
 		else
 			s = "";
 		$("#eyecatch_renchan_cnt").html(s);
-		$("#eyecatch_renchan_cnt").attr("title", s);
-		$("#eyecatch").show("fast").delay(2000).hide("fast", function() {
+		$("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
 			timerEnabled = true;
 			timerId = setTimeout(timer, timerInterval);
 		});

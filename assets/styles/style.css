@@ -25,6 +25,7 @@ body {
 }
 a {
 	color: #fff;
+	cursor: pointer;
 	text-decoration: none;
 	border-bottom: 2px solid #fff;
 }
@@ -148,6 +149,7 @@ table {
 }
 #eyecatch {
 	background: rgba(0, 0, 0, 0.8);
+	cursor: default;
 	display: none;
 	height: 100%;
 	left: 0;
