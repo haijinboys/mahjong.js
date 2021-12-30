@@ -584,16 +584,16 @@ var MAHJONG = (function() {
 				var tmpHanCnt = yakuList[i].hanCnt;
 				var tmpName = yakuList[i].name;
 				if (tmpHanCnt)
-					$("#dialog_text").append("<span style='display: inline-block; width: 140px;'>" + tmpName + "</span><span align='right' style='display: inline-block; width: 140px;'>" + tmpHanCnt + " 飜" + "</span><br/>");
+					$("#dialog_text").append("<span style='display: inline-block; width: 140px;'>" + tmpName + "</span><span align='right' style='display: inline-block; width: 100px;'>" + tmpHanCnt + " 飜" + "</span><br/>");
 				else
-					$("#dialog_text").append("<span style='display: inline-block; width: 140px;'></span><span align='right' style='display: inline-block; width: 140px;'>" + tmpName + "</span><br/>");
+					$("#dialog_text").append("<span style='display: inline-block; width: 140px;'></span><span align='right' style='display: inline-block; width: 100px;'>" + tmpName + "</span><br/>");
 			}
 		}
 		if (arg4 == "流局") {
 			// 聴牌
 			for (var i = 0; i < tenpaiList.length; i++) {
 				var tmpName = playerNameList[playerUserList[i]];
-				$("#dialog_text").append("<span style='display: inline-block; width: 140px;'>" + tmpName + "</span><span align='right' style='display: inline-block; width: 140px;'>" + (tenpaiList[i] ? "テンパイ" : "ノーテン") + "</span><br/>");
+				$("#dialog_text").append("<span style='display: inline-block; width: 140px;'>" + tmpName + "</span><span align='right' style='display: inline-block; width: 100px;'>" + (tenpaiList[i] ? "テンパイ" : "ノーテン") + "</span><br/>");
 			}
 			if (tenpaiList[playerUser]) {
 				playVoice(playerUser, voiceTenpai);
@@ -1347,6 +1347,27 @@ var MAHJONG = (function() {
 			getPai(arg1, paiCategorySouzu, paiIdx3);
 			getPai(arg1, paiCategorySouzu, paiIdx7);
 			getPai(arg1, paiCategorySouzu, paiIdx8);
+			playerList[arg1].sort();
+			playerTsumo = startPaiMax;
+			return;
+		}
+		*/
+		/*
+		if (arg1 == playerUser) {
+			// 七対子
+			getPai(arg1, paiCategoryManzu, paiIdx2);
+			getPai(arg1, paiCategoryManzu, paiIdx2);
+			getPai(arg1, paiCategoryManzu, paiIdx5);
+			getPai(arg1, paiCategoryManzu, paiIdx5);
+			getPai(arg1, paiCategoryManzu, paiIdx7);
+			getPai(arg1, paiCategoryManzu, paiIdx7);
+			getPai(arg1, paiCategoryManzu, paiIdx8);
+			getPai(arg1, paiCategoryManzu, paiIdx8);
+			getPai(arg1, paiCategoryPinzu, paiIdx3);
+			getPai(arg1, paiCategoryPinzu, paiIdx3);
+			getPai(arg1, paiCategoryPinzu, paiIdx4);
+			getPai(arg1, paiCategoryPinzu, paiIdx7);
+			getPai(arg1, paiCategoryPinzu, paiIdx7);
 			playerList[arg1].sort();
 			playerTsumo = startPaiMax;
 			return;
@@ -3148,7 +3169,8 @@ var MAHJONG = (function() {
 		var categoryCnt2 = 0;
 		var categoryCnt3 = 0;
 		for (var i = 0; i < paiCategoryMax; i++) {
-			if (categoryCntTbl[i] % 2 == 0)
+			if ((categoryCntTbl[i] % 2 == 0) &&
+				(categoryCntTbl[i] !== 0))
 				categoryCnt2++;
 			if (categoryCntTbl[i] == 13 || categoryCntTbl[i] == 14)
 				categoryCnt2++;
@@ -3711,7 +3733,7 @@ var MAHJONG = (function() {
 				src = wavPath + a[arg2];
 				setTimeout(function() {
 					play();
-				}, 50);
+				}, 1);
 			}
 		}
 	}
@@ -3722,7 +3744,7 @@ var MAHJONG = (function() {
 			src = arg1;
 			setTimeout(function() {
 				play();
-			}, 50);
+			}, 1);
 		}
 	}
 
@@ -3734,7 +3756,7 @@ var MAHJONG = (function() {
 			src = arg1;
 			setTimeout(function() {
 				play();
-			}, 50);
+			}, 1);
 		}
 	}
 
