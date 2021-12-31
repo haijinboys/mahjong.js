@@ -237,7 +237,7 @@ var MAHJONG = (function() {
 	for (var i = 0; i < playerMax; i++)
 		fieldCnt[i] = 0;
 
-	var paiCnt, yama, deme, tsumoPai, tsumoYama;
+	var paiCnt, yama, deme, tsumoPai, tsumoYama, sai1, sai2;
 	var doraYama, doraStart, doraCnt;
 	var gameCnt, oyaCnt, playerCnt, nowCnt, renchanCnt, riichiCnt;
 	var gameStart = false
@@ -527,6 +527,8 @@ var MAHJONG = (function() {
 				break;
 		}
 		$("#pai_cnt").html(paiCnt - 1);
+		$("#sai1").attr("src", getSaiSrc(sai1 + 1));
+		$("#sai2").attr("src", getSaiSrc(sai2 + 1));
 	}
 
 	// メッセージ表示
@@ -757,10 +759,10 @@ var MAHJONG = (function() {
 		else
 			s = "";
 		$("#eyecatch_renchan_cnt").html(s);
-		$("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
+		// $("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
 			timerEnabled = true;
 			timerId = setTimeout(timer, timerInterval);
-		});
+		// });
 	}
 
 	// ゲーム終了
@@ -929,7 +931,9 @@ var MAHJONG = (function() {
 
 	// 出目取得
 	function getDeme(arg1) {
-		var tmpDeme = Math.floor(Math.random() * (demeMax - 2));
+		sai1 = Math.floor(Math.random() * demeMax / 2);
+		sai2 = Math.floor(Math.random() * demeMax / 2);
+		var tmpDeme = sai1 + sai2;
 		var tmpYama = tmpDeme % 4;
 		tmpYama = ((tmpYama + 1) + arg1) % 4;
 		deme = tmpDeme + 2;
@@ -955,6 +959,13 @@ var MAHJONG = (function() {
 		}
 		return s + "/trans.png";
 	}
+
+	// サイコロ画像取得
+	function getSaiSrc(arg1) {
+		var s = imgPath + "pai/";
+		return s + "/" + arg1 + ".png";
+	}
+
 	// 牌画像取得
 	function getPaiSrc(arg1, arg2, arg3, arg4) {
 		var s = imgPath + "pai/";
@@ -1389,6 +1400,27 @@ var MAHJONG = (function() {
 			getPai(arg1, paiCategorySangen, paiIdx1);
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx3);
+			playerList[arg1].sort();
+			playerTsumo = startPaiMax;
+			return;
+		}
+		*/
+		/*
+		if (arg1 == playerUser) {
+			// カン
+			getPai(arg1, paiCategoryManzu, paiIdx3);
+			getPai(arg1, paiCategoryManzu, paiIdx3);
+			getPai(arg1, paiCategoryPinzu, paiIdx1);
+			getPai(arg1, paiCategoryPinzu, paiIdx5);
+			getPai(arg1, paiCategorySouzu, paiIdx9);
+			getPai(arg1, paiCategoryKaze, paiIdx1);
+			getPai(arg1, paiCategoryKaze, paiIdx2);
+			getPai(arg1, paiCategoryKaze, paiIdx3);
+			getPai(arg1, paiCategoryKaze, paiIdx4);
+			getPai(arg1, paiCategorySangen, paiIdx2);
+			getPai(arg1, paiCategorySangen, paiIdx2);
+			getPai(arg1, paiCategorySangen, paiIdx2);
+			getPai(arg1, paiCategorySangen, paiIdx2);
 			playerList[arg1].sort();
 			playerTsumo = startPaiMax;
 			return;
@@ -2086,6 +2118,7 @@ var MAHJONG = (function() {
 			tehaiTbl[i] = false;
 		var i, listIdx, tmpIdx, nextIdx, prevListIdx, nextListIdx;
 		var chkIdx, idx;
+		playerList[arg1].sort();
 		for (listIdx = 0; listIdx < playerList[arg1].length; listIdx++) {
 			if (tehaiTbl[listIdx] || listIdx == playerList[arg1].length - 1)
 				continue;
@@ -2095,7 +2128,7 @@ var MAHJONG = (function() {
 			for (i = 1; i < idxMax; i++) {
 				tmpIdx = i;
 				nextListIdx = findListIdx(arg1, paiList[chkIdx].category, paiList[chkIdx].idx);
-				if (nextListIdx > -1) {
+				if (nextListIdx !== -1) {
 					prevListIdx = nextListIdx;
 					tehaiTbl[nextListIdx] = true;
 				} else {
@@ -2109,9 +2142,8 @@ var MAHJONG = (function() {
 				break;
 			}
 		}
-		if (i < idxMax - 1)
+		if (i !== idxMax - 1)
 			return;
-		playerList[arg1].sort();
 		var prevNakiCnt = playerNakiList[arg1].length;
 		for (i = 0; i < 4; i++) {
 			chkIdx = playerList[arg1][idx].split(":")[3];
@@ -2690,6 +2722,7 @@ var MAHJONG = (function() {
 		playerList[playerChkList].sort();
 		if (chkAgari(arg1, playerChkList))
 			return true;
+		return false;
 	}
 
 	// カンを確認
@@ -2717,6 +2750,7 @@ var MAHJONG = (function() {
 					return true;
 			}
 		}
+		return false;
 	}
 
 	// チーを確認
@@ -3634,6 +3668,9 @@ var MAHJONG = (function() {
 			(new Image()).src = getPaiSrc(i, paiCategoryOther, paiIdxUra1, false);
 			(new Image()).src = getPaiSrc(i, paiCategoryOther, paiIdxUra2, false);
 		}
+		for (var i = 0; i < 6; i++) {
+			(new Image()).src = getSaiSrc(i + 1);
+		}
 	}
 
 	initPaiSrc();
@@ -3641,9 +3678,7 @@ var MAHJONG = (function() {
 	// オープニング
 	function doOpening() {
 		stopAudio();
-		$("#opening").show();
-		$("#opening_credits").show();
-		$("#opening_credits").delay(3000).fadeOut("slow", function() {
+		$("#opening_credits").fadeIn("slow").delay(3000).fadeOut("slow", function() {
 			$("#opening_title").fadeIn("slow", function() {
 				// playAudio(mp3Path + "");
 			});
@@ -3679,7 +3714,6 @@ var MAHJONG = (function() {
 
 	(new Image).src = imgPath + "effect/pipo-mapeffect001.png";
 	(new Image).src = imgPath + "effect/pipo-mapeffect002.png";
-	(new Image).src = imgPath + "effect/pipo-mapeffect008.png";
 
 	function effectTimer(){
 		$("#effect").css({ "background-position": -effectWidth * nowFrame +"px 0" });
@@ -3824,7 +3858,7 @@ var MAHJONG = (function() {
 
 	// 暗カンクリック時
 	$("#btn_ankan").click(function() {
-		playSound(wavPath + "sound2.wav");
+		playVoice(playerUser, voiceKan);
 		hidePlayerMenu();
 		if (chkAnkan(playerUser))
 			setAnkan(playerUser);
