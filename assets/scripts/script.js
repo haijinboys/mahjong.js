@@ -759,10 +759,10 @@ var MAHJONG = (function() {
 		else
 			s = "";
 		$("#eyecatch_renchan_cnt").html(s);
-		// $("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
+		$("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
 			timerEnabled = true;
 			timerId = setTimeout(timer, timerInterval);
-		// });
+		});
 	}
 
 	// ゲーム終了
