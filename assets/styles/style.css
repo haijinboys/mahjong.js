@@ -14,7 +14,7 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 	overflow: hidden;
-	/* text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000; */
+	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-webkit-text-size-adjust: 100%;
 	-webkit-background-size: cover;
@@ -26,7 +26,7 @@ a {
 	color: #fff;
 	cursor: pointer;
 	text-decoration: none;
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #000;
 }
 img {
 	margin: 0;
@@ -107,6 +107,22 @@ table {
 	-o-background-size: cover;
 	background-size: cover;
 }
+#opening_title img {
+	animation: poyooon 1s linear 1s 1;
+	position: absolute;
+	right: -100px;
+	top: 100px;
+}
+@keyframes poyooon {
+	0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	10% { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	40% { transform: scale(1.2, 0.8) translate(0%, 15%); }
+	50% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	60% { transform: scale(0.9, 1.2) translate(0%, -50%); }
+	75% { transform: scale(0.9, 1.2) translate(0%, -10%); }
+	85% { transform: scale(1.2, 0.8) translate(0%, 15%); }
+	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
 #opening_title_logo {
 	margin-top: -240px;
 	position: absolute;
@@ -123,8 +139,11 @@ table {
 	color: #d93725;
 	font-size: 80px;
 }
+#opening_title_menu a {
+	border: none;
+}
 #opening_title_menu > div:first-child {
-	font-size: 24px;
+	font-size: 32px;
 	margin-top: 40px;
 	position: absolute;
 	text-align: center;
@@ -253,6 +272,13 @@ table {
 	max-height: 48px;
 	max-width: 48px;
 }
+.pai_bottom {
+	transition-duration: 0.1s;
+}
+.pai_bottom:hover {
+	transform: scale(1.1);
+	transition-duration: 0.1s;
+}
 .riichi {
 	max-height: 68px;
 	max-width: 68px;
@@ -271,8 +297,9 @@ table {
 }
 .chara {
 	background: rgba(0, 0, 0, 0.4);
+	overflow: hidden;
 	position: relative;
-	height: 100%;
+	height: 300px;
 	width: 100%;
 	z-index: 1;
 }
@@ -294,8 +321,40 @@ table {
 }
 .chara_img {
 	background: no-repeat center top;
-	height: 300px;
+	height: 400px;
 	width: 200px;
+}
+#chara_top {
+	animation: anime_top 3s ease infinite;
+}
+@keyframes anime_top {
+    0% { transform: rotate(0.2deg) scaleX(-1.02) scaleY(1.02) translate3d(0, 0, 0); }
+    50% { transform: rotate(0deg) scaleX(-1) scaleY(1) translate3d(0, -1px, 0); }
+    100% { transform: rotate(0.2deg) scaleX(-1.02) scaleY(1.02) translate3d(0, 0, 0); }
+}
+#chara_left {
+	animation: anime_left 3s ease infinite;
+}
+@keyframes anime_left {
+    0% { transform: rotate(0deg) scaleX(-1) scaleY(1) translate3d(0, 0, 0); }
+    50% { transform: rotate(0.2deg) scaleX(-1.02) scaleY(1.02) translate3d(0, -1px, 0); }
+    100% { transform: rotate(0deg) scaleX(-1) scaleY(1) translate3d(0, 0, 0); }
+}
+#chara_right {
+	animation: anime_right 3s ease infinite;
+}
+@keyframes anime_right {
+    0% { transform: rotate(0deg) scaleX(1) scaleY(1) translate3d(0, 0, 0); }
+    50% { transform: rotate(0.2deg) scaleX(1.02) scaleY(1.02) translate3d(0, -1px, 0); }
+    100% { transform: rotate(0deg) scaleX(1) scaleY(1) translate3d(0, 0, 0); }
+}
+#chara_bottom {
+	animation: anime_bottom 3s ease infinite;
+}
+@keyframes anime_bottom {
+    0% { transform: rotate(0.2deg) scaleX(1.02) scaleY(1.02) translate3d(0, 0, 0); }
+    50% { transform: rotate(0deg) scaleX(1) scaleY(1) translate3d(0, -1px, 0); }
+    100% { transform: rotate(0.2deg) scaleX(1.02) scaleY(1.02) translate3d(0, 0, 0); }
 }
 .chara_data {
 	background: rgba(0, 0, 0, 0.4);
