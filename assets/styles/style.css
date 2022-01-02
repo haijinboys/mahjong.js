@@ -296,6 +296,7 @@ table {
 }
 #opening_credits {
 	display: none;
+	font-size: 24px;
 	height: 100%;
 	text-align: center;
 	width: 100%;
@@ -308,22 +309,22 @@ table {
 	-webkit-transform: translateY(-50%) translateX(-50%);
 }
 #opening_credits > div div:first-child {
-	font-size: 24px;
+	font-size: 1em;
 	line-height: 2;
 	margin-bottom: 1em;
 }
 #opening_credits > div div:first-child span {
-	font-size: 12px;
+	font-size: 0.5em;
 }
 #opening_credits > div div:last-child p {
 	margin: 1em 0;
 }
 #opening_credits > div div:last-child p:last-child {
-	font-size: 12px;
+	font-size: 0.5em;
 }
 #opening_credits > div div:last-child > div {
 	display: inline-block;
-	font-size: 16px;
+	font-size: 0.7em;
 	text-align: left;
 }
 #opening_credits div a:hover {
@@ -660,7 +661,7 @@ table {
 	.chara_name {
 		font-size: 12px;
 	}
-	#opening {
-		transform: scale(0.58);
+	#opening_credits {
+		font-size: 16px;
 	}
 }
