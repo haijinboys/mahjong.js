@@ -4,7 +4,7 @@ var MAHJONG = (function() {
 	// 設定
 	var imgPath = "./assets/images/";
 	var wavPath = "./assets/wav/";
-	var mp3Path = "./assets/mp3/";
+	var mp3Path = "./assets/ogg/";
 	var timerInterval = 400;
 
 	// 定数
@@ -719,7 +719,7 @@ var MAHJONG = (function() {
 
 	// ゲーム開始
 	function startGame() {
-		playAudio(mp3Path + "audio1.mp3");
+		playAudio(mp3Path + "audio1.ogg");
 		gameStart = true;
 		gameEnd = false;
 		isRiichi = false;
@@ -1583,7 +1583,7 @@ var MAHJONG = (function() {
 			showMessage(gameCnt, riibouCnt, renchanCnt);
 			showScore();
 			showRiichi(arg1);
-			playAudio(mp3Path + "audio2.mp3");
+			playAudio(mp3Path + "audio2.ogg");
 		}
 		if (playerNakiMenu)
 		 return;
@@ -3691,8 +3691,8 @@ var MAHJONG = (function() {
 		(new Audio()).src = wavPath + "bonus/bonus32.wav";
 		(new Audio()).src = wavPath + "bonus/bonus41.wav";
 		(new Audio()).src = wavPath + "bonus/bonus42.wav";
-		(new Audio()).src = mp3Path + "audio1.mp3";
-		(new Audio()).src = mp3Path + "audio2.mp3";
+		(new Audio()).src = mp3Path + "audio1.ogg";
+		(new Audio()).src = mp3Path + "audio2.ogg";
 	}
 
 	initPaiSrc();
