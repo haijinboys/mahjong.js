@@ -4,7 +4,8 @@
 }
 html,
 body {
-	height: 100%;
+	height: 100vh;
+	width: 100%;
 }
 body {
 	/* background: #2f7b7f; */
@@ -26,7 +27,6 @@ a {
 	color: #fff;
 	cursor: pointer;
 	text-decoration: none;
-	border-bottom: 2px solid #fff;
 }
 img {
 	margin: 0;
@@ -49,6 +49,241 @@ table {
 }
 .clearfix {
 	zoom: 1;
+}
+.container {
+	height: 100%;
+	width: 100%;
+}
+.container img {
+	vertical-align: middle;
+}
+.container td {
+	white-space: nowrap;
+}
+.wrapper {
+	display: inline-block;
+	position: relative;
+}
+.tehai_table {
+	height: 640px;
+	line-height: 0;
+	width: 640px;
+}
+.tehai_table > tbody > tr:first-child > td {
+	height: 40px;
+	width: 100%;
+}
+.tehai_table > tbody > tr:first-child > td:first-child,
+.tehai_table > tbody > tr:first-child > td:last-child {
+	width: 40px;
+}
+.tehai_table > tbody > tr:nth-child(2) > td {
+	height: 100%;
+	width: 100%;
+}
+.tehai_table > tbody > tr:nth-child(2) > td:first-child,
+.tehai_table > tbody > tr:nth-child(2) > td:last-child {
+	width: 40px;
+}
+.tehai_table > tbody > tr:last-child > td:first-child,
+.tehai_table > tbody > tr:last-child > td:last-child {
+	width: 56px;
+}
+.pai_top {
+	margin-bottom: -32px;
+	position: relative;
+	top: -32px;
+}
+.pai_left {
+	float: left;
+	left: -32px;
+	margin-right: -32px;
+	position: relative;
+	top: 0px;
+}
+.pai_right {
+	float: left;
+	left: -32px;
+	margin-right: -32px;
+	position: relative;
+	top: 0px;
+}
+.pai_bottom {
+	margin-bottom: -48px;
+	position: relative;
+	top: -48px;
+	z-index: 9999;
+}
+.pai:hover {
+	transform: scale(1.1);
+}
+.naki_top {
+	left: -72px;
+	position: relative;
+}
+.naki_left {
+	bottom: -72px;
+	float: left;
+	margin-left: 4px;
+	position: relative;
+}
+.naki_right {
+	float: left;
+	margin-left: 4px;
+	position: relative;
+	top: -72px;
+}
+.naki_bottom {
+	position: relative;
+	right: 120px;
+	z-index: 1;
+}
+.yama_table {
+	height: 100%;
+	width: 100%;
+}
+.yama_table > tbody > tr:first-child > td {
+	height: 40px;
+	width: 100%;
+}
+.yama_table > tbody > tr:first-child > td:first-child,
+.yama_table > tbody > tr:first-child > td:last-child {
+	width: 40px;
+}
+.yama_table > tbody > tr:nth-child(2) > td {
+	height: 100%;
+	width: 100%;
+}
+.yama_table > tbody > tr:nth-child(2) > td:first-child,
+.yama_table > tbody > tr:nth-child(2) > td:last-child {
+	width: 40px;
+}
+.yama_table > tbody > tr:last-child > td:first-child,
+.yama_table > tbody > tr:last-child > td:last-child {
+	height: 40px;
+}
+.field_table {
+	height: 100%;
+	width: 100%;
+}
+.field_table > tbody > tr:first-child > td {
+	height: 104px;
+	width: 100%;
+}
+.field_table > tbody > tr:first-child > td:first-child,
+.field_table > tbody > tr:first-child > td:last-child {
+	width: 104px;
+}
+.field_table > tbody > tr:nth-child(2) > td {
+	height: 100%;
+	width: 100%;
+}
+.field_table > tbody > tr:nth-child(2) > td:first-child,
+.field_table > tbody > tr:nth-child(2) > td:last-child {
+	width: 104px;
+}
+.field_table > tbody > tr:last-child > td {
+	height: 104px;
+	width: 100%;
+}
+.field_table > tbody > tr:last-child > td:first-child,
+.field_table > tbody > tr:last-child > td:last-child {
+	width: 104px;
+}
+.field img {
+	position: relative;
+}
+.field td {
+	line-height: 0;
+}
+.data_table {
+	/* background: rgba(0, 0, 0, 0.2); */
+	font-size: 16px;
+	height: 220px;
+	line-height: 1.6;
+	width: 220px;
+}
+.data_table > tbody > tr:first-child > td {
+	height: 56px;
+	width: 100%;
+}
+.data_table > tbody > tr:first-child > td:first-child,
+.data_table > tbody > tr:first-child > td:last-child {
+	width: 56px;
+}
+.data_table > tbody > tr:nth-child(2) > td {
+	height: 100%;
+	width: 100%;
+}
+.data_table > tbody > tr:nth-child(2) > td:first-child,
+.data_table > tbody > tr:nth-child(2) > td:last-child {
+	width: 56px;
+}
+.data_table > tbody > tr:last-child > td {
+	height: 56px;
+	width: 100%;
+}
+.data_table > tbody > tr:last-child > td:first-child,
+.data_table > tbody > tr:last-child > td:last-child {
+	width: 56px;
+}
+#kaze_top {
+	transform: rotate(180deg);
+}
+#kaze_left {
+	transform: rotate(90deg);
+}
+#kaze_right {
+	transform: rotate(-90deg);
+}
+.kaze {
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	vertical-align: middle;
+	width: 32px;
+}
+.riichi_top,
+.riichi_bottom {
+	height: 16px;
+}
+.riichi_left,
+.riichi_right {
+	width: 16px;
+}
+#riichi_bottom,
+#riichi_right,
+#riichi_top,
+#riichi_left {
+	display: none;
+}
+.riichi {
+	max-height: 68px;
+	max-width: 68px;
+}
+.ten {
+	max-height: 24px;
+	max-width: 24px;
+}
+#riibou_cnt,
+#renchan_cnt {
+	display: inline-block;
+	width: 16px;
+	text-align: right;
+}
+.sai {
+	max-height: 16px;
+	max-width: 16px;
+}
+.pai32 {
+	max-height: 32px;
+	max-width: 32px;
+}
+.pai48 {
+	max-height: 48px;
+	max-width: 48px;
+	z-index: 9999;
 }
 #opening {
 	background: #000;
@@ -74,14 +309,13 @@ table {
 }
 #opening_credits > div div:first-child {
 	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 40px;
+	line-height: 2;
+	margin-bottom: 1em;
 }
 #opening_credits > div div:first-child span {
 	font-size: 12px;
 }
 #opening_credits > div div:last-child p {
-	line-height: 2;
 	margin: 1em 0;
 }
 #opening_credits > div div:last-child p:last-child {
@@ -90,7 +324,6 @@ table {
 #opening_credits > div div:last-child > div {
 	display: inline-block;
 	font-size: 16px;
-	font-weight: bold;
 	text-align: left;
 }
 #opening_credits div a:hover {
@@ -101,7 +334,6 @@ table {
 	background: url(../images/bg_abstract2_green.png) no-repeat center center fixed; 
 	display: none;
 	height: 100%;
-	text-shadow: none;
 	width: 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -115,7 +347,6 @@ table {
 	top: 200px;
 }
 #opening_title_logo {
-	font-family: "Segoe UI", "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
 	margin-top: -200px;
 	position: absolute;
 	text-align: center;
@@ -130,14 +361,12 @@ table {
 	color: #d93725;
 	font-size: 64px;
 }
-#opening_title_menu a {
-	border-bottom: 3px solid #fff;
-}
 #opening_title_menu > div:first-child {
 	font-size: 24px;
 	margin-top: 40px;
 	position: absolute;
 	text-align: center;
+	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
 	top: 50%;
 	width: 100%;
 }
@@ -170,7 +399,6 @@ table {
 }
 #eyecatch div {
 	font-size: 64px;
-	font-weight: bold;
 	left: 50%;
 	position: absolute;
 	top: 50%;
@@ -243,75 +471,38 @@ table {
 	transform: translateY(-50%) translateX(-50%);
 	-webkit-transform: translateY(-50%) translateX(-50%);
 }
-#riichi_bottom,
-#riichi_right,
-#riichi_top,
-#riichi_left {
-	display: none;
-}
 #effect {
 	display: none;
 	position: absolute;
 	z-index: 9;
-}
-#table {
-	height: 100%;
-	width: 100%;
-}
-#table img {
-	vertical-align: middle;
-}
-.pai32 {
-	max-height: 32px;
-	max-width: 32px;
-}
-.pai48 {
-	max-height: 48px;
-	max-width: 48px;
-	z-index: 9999;
-}
-.pai_bottom:hover {
-	transform: scale(1.1);
-}
-.riichi {
-	max-height: 68px;
-	max-width: 68px;
-}
-.ten {
-	max-height: 24px;
-	max-width: 24px;
-}
-.sai {
-	max-height: 16px;
-	max-width: 16px;
 }
 #dialog img {
 	max-height: 32px;
 	max-width: 32px;
 }
 .chara {
-	background: rgba(0, 0, 0, 0.4);
-	overflow: clip;
+	/* background: rgba(0, 0, 0, 0.4); */
+	overflow: hidden;
 	position: absolute;
 	height: 300px;
 	width: 200px;
 	z-index: 0;
 }
 .chara_top {
-	left: 1em;
-	top: 1em;
+	left: 0;
+	top: 0;
 }
 .chara_left {
-	left: 1em;
-	bottom: 1em;
+	bottom: 0;
+	left: 0;
 }
 .chara_right {
-	right: 1em;
-	top: 1em;
+	right: 0;
+	top: 0;
 }
 .chara_bottom {
-	right: 1em;
-	bottom: 1em;
+	bottom: 0;
+	right: 0;
 }
 .chara_img {
 	background: no-repeat center top;
@@ -355,9 +546,27 @@ table {
     50% { transform: rotate(0deg) scaleX(1) scaleY(1) translate3d(0, -1px, 0); }
     100% { transform: rotate(0.2deg) scaleX(1.02) scaleY(1.02) translate3d(0, 0, 0); }
 }
+.align_center {
+	text-align: center;
+}
+.align_center2 {
+	margin-left: auto;
+	margin-right: auto;
+}
+.align_right {
+	text-align: right;
+}
+.valign_top {
+	vertical-align: top;
+}
+.valign_middle {
+	vertical-align: middle;
+}
+.valign_bottom {
+	vertical-align: bottom;
+}
 .chara_data {
 	bottom: 0px;
-	font-weight: bold;
 	position: absolute;
 	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
 	width: 100%;
@@ -371,40 +580,10 @@ table {
 .chara_name {
 	font-size: 16px;
 }
-.data {
-	/* background: rgba(0, 0, 0, 0.2); */
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 1.6;
-}
-.kaze {
-	display: inline-block;
-	height: 32px;
-	line-height: 32px;
-	text-align: center;
-	vertical-align: middle;
-	width: 32px;
-}
-.kaze_top {
-	transform: rotate(180deg);
-}
-.kaze_left {
-	transform: rotate(90deg);
-}
-.kaze_right {
-	transform: rotate(-90deg);
-}
-
-.field img {
-	position: relative;
-}
-.field td {
-	line-height: 0;
-}
 #pai_cnt {
 	font-size: 20px;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
 	.chara {
 		height: 250px;
 		width: 160px;
@@ -415,7 +594,7 @@ table {
 		width: 160px;
 	}
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 840px) {
 	.chara {
 		height: 200px;
 		width: 120px;
@@ -426,30 +605,57 @@ table {
 		width: 120px;
 	}
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 896px) and (orientation: landscape) {
+	.container {
+		transform: scale(0.45);
+		transform-origin: 50% 5%;
+	}
 	.chara {
-		height: 160px;
-		width: 120px;
-	}
-	.chara_top {
-		left: 4px;
-		top: 4px;
-	}
-	.chara_left {
-		left: 4px;
-		bottom: 4px;
-	}
-	.chara_right {
-		right: 4px;
-		top: 4px;
-	}
-	.chara_bottom {
-		right: 4px;
-		bottom: 4px;
+		height: 150px;
+		width: 150px;
 	}
 	.chara_img {
-		background-size: 140px auto;
+		background-size: 150px auto;
+		height: 200px;
+		width: 150px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.container {
+		transform: scale(0.6);
+		transform-origin: 0 0;
+	}
+	.chara {
+		height: 160px;
+		width: 100px;
+	}
+	.chara_img {
+		background-size: 100px auto;
 		height: 260px;
-		width: 120px;
+		width: 100px;
+	}
+	.chara_top {
+		bottom: 0;
+		left: 90px;
+		top: auto;
+	}
+	.chara_left {
+		left: 0;
+		bottom: 0;
+	}
+	.chara_right {
+		bottom: 0;
+		right: 90px;
+		top: auto;
+	}
+	.chara_bottom {
+		bottom: 0;
+		right: 0;
+	}
+	.chara_score {
+		font-size: 20px;
+	}
+	.chara_name {
+		font-size: 12px;
 	}
 }

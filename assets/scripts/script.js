@@ -5,7 +5,7 @@ var MAHJONG = (function() {
 	var imgPath = "./assets/images/";
 	var wavPath = "./assets/wav/";
 	var mp3Path = "./assets/mp3/";
-	var timerInterval = 400;
+	var timerInterval = 200;
 
 	// 定数
 	var paiMax = 136;
@@ -3766,6 +3766,7 @@ var MAHJONG = (function() {
 			with (voice) {
 				src = wavPath + a[arg2];
 				setTimeout(function() {
+					currentTime = 0;
 					play();
 				}, 50);
 			}
@@ -3777,6 +3778,7 @@ var MAHJONG = (function() {
 		with (sound) {
 			src = arg1;
 			setTimeout(function() {
+				currentTime = 0;
 				play();
 			}, 50);
 		}
@@ -3785,10 +3787,10 @@ var MAHJONG = (function() {
 	// 音楽再生
 	function playAudio(arg1) {
 		with (audio) {
-			currentTime = 0;
 			loop = true;
 			volume = 0.32;
 			src = arg1;
+			currentTime = 0;
 			play();
 		}
 	}
@@ -3816,7 +3818,7 @@ var MAHJONG = (function() {
 		$("#pai_bottom" + (i + 1)).click(function() {
 			if (timerEnabled || !gameStart || playerNakiMenu)
 				return;
-			tmpIdx = $(this).attr("value");
+			tmpIdx = $(this).attr("data-value");
 			if ((playerRiichi[playerUser].enabled && tmpIdx != playerTsumo) || tmpIdx >= playerList[playerUser].length)
 				return;
 			if (isChii) {
@@ -3841,7 +3843,7 @@ var MAHJONG = (function() {
 				}
 			} else {
 				hidePlayerMenu();
-				selPai(playerUser, $(this).attr("value"));
+				selPai(playerUser, $(this).attr("data-value"));
 				if (!gameExit) {
 					playerList[playerUser].sort();
 					showPai(playerUser, false);
