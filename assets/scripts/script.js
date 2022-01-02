@@ -3785,6 +3785,7 @@ var MAHJONG = (function() {
 	// 音楽再生
 	function playAudio(arg1) {
 		with (audio) {
+			currentTime = 0;
 			loop = true;
 			volume = 0.32;
 			src = arg1;

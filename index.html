@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>プロ生ちゃんの mahjong.js</title>
 <link href="./favicon.ico" rel="shortcut icon"/>
 <link href="./assets/styles/style.css?20220101" rel="stylesheet" type="text/css"/>
@@ -9,39 +10,36 @@
 </head>
 <body>
 <div id="effect"></div>
-<table id="table" cellpadding="0" cellspacing="0" style="height: 100%; width: 100%;">
+<div class="chara chara_top">
+	<div id="chara_top" class="chara_img"></div>
+	<div class="chara_data">
+		<div align="right" id="chara_score_top" class="chara_score">&nbsp;</div>
+		<div align="right" id="chara_name_top" class="chara_name">&nbsp;</div>
+	</div>
+</div>
+<div class="chara chara_left">
+	<div id="chara_left" class="chara_img"></div>
+	<div class="chara_data">
+		<div align="right" id="chara_score_left" class="chara_score">&nbsp;</div>
+		<div align="right" id="chara_name_left" class="chara_name">&nbsp;</div>
+	</div>
+</div>
+<div class="chara chara_right">
+	<div id="chara_right" class="chara_img"></div>
+	<div class="chara_data">
+		<div align="right" id="chara_score_right" class="chara_score">&nbsp;</div>
+		<div align="right" id="chara_name_right" class="chara_name">&nbsp;</div>
+	</div>
+</div>
+<div class="chara chara_bottom">
+	<div id="chara_bottom" class="chara_img"></div>
+	<div class="chara_data">
+		<div align="right" id="chara_score_bottom" class="chara_score">&nbsp;</div>
+		<div align="right" id="chara_name_bottom" class="chara_name">&nbsp;</div>
+	</div>
+</div>
+<table id="table" cellpadding="0" cellspacing="0">
 	<tr>
-		<td nowrap="nowrap" valign="top" style="width: 200px;">
-			<table cellpadding="0" cellspacing="0" style="height: 100%; width: 100%;">
-				<tr>
-					<td nowrap="nowrap" style="height: 300px; width: 100%;">
-						<div class="chara chara_top">
-							<div id="chara_top" class="chara_img"></div>
-							<div class="chara_data">
-								<div align="right" id="chara_score_top" class="chara_score">&nbsp;</div>
-								<div align="right" id="chara_name_top" class="chara_name">&nbsp;</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td nowrap="nowrap" style="height: 100%; width: 100%;">
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<td nowrap="nowrap" style="height: 300px; width: 100%;">
-						<div class="chara chara_left">
-							<div id="chara_left" class="chara_img"></div>
-							<div class="chara_data">
-								<div align="right" id="chara_score_left" class="chara_score">&nbsp;</div>
-								<div align="right" id="chara_name_left" class="chara_name">&nbsp;</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</td>
 		<td align="center" nowrap="nowrap">
 			<div style="display: inline-block; position: relative;">
 				<!-- 手牌(B) -->
@@ -314,12 +312,12 @@
 													</table>
 												</td>
 												<td align="center" nowrap="nowrap" style="height: 100%; width: 100%;">
-													<table cellpadding="0" cellspacing="0" class="data" style="height: 200px; width: 200px;">
+													<table cellpadding="0" cellspacing="0" class="data" style="height: 220px; width: 220px;">
 														<tr>
-															<td nowrap="nowrap" style="height: 40px; width: 40px;">
+															<td nowrap="nowrap" style="height: 56px; width: 56px;">
 																&nbsp;
 															</td>
-															<td align="center" nowrap="nowrap" style="height: 40px; width: 100%;">
+															<td align="center" nowrap="nowrap" style="height: 56px; width: 100%;">
 																<table cellpadding="0" cellspacing="0">
 																	<tr>
 																		<td align="center" nowrap="nowrap">
@@ -327,24 +325,24 @@
 																		</td>
 																	</tr>
 																	<tr>
-																		<td align="center" nowrap="nowrap" style="height: 16px; line-height: 0;">
+																		<td align="center" valign="middle" nowrap="nowrap" style="height: 16px; line-height: 0;">
 																			<img id="riichi_top" src="./assets/images/pai/2/riichi.png" class="riichi"/>
 																		</td>
 																	</tr>
 																</table>
 															</td>
-															<td nowrap="nowrap" style="height: 40px; width: 40px;">
+															<td nowrap="nowrap" style="height: 56px; width: 56px;">
 																&nbsp;
 															</td>
 														</tr>
 														<tr>
-															<td align="center" nowrap="nowrap" valign="middle" style="height: 100%; width: 40px;">
+															<td align="center" nowrap="nowrap" valign="middle" style="height: 100%; width: 56px;">
 																<table cellpadding="0" cellspacing="0">
 																	<tr>
 																		<td nowrap="nowrap">
 																			<div align="center" id="kaze_left" class="kaze kaze_left"></div>
 																		</td>
-																		<td nowrap="nowrap" style="width: 16px;">
+																		<td align="center" nowrap="nowrap" style="width: 16px;">
 																			<img id="riichi_left" src="./assets/images/pai/1/riichi.png" class="riichi"/>
 																		</td>
 																	</tr>
@@ -362,10 +360,10 @@
 																</div>
 																<div id="pai_cnt"></div>
 															</td>
-															<td align="center" nowrap="nowrap" style="height: 100%; width: 40px;">
+															<td align="center" nowrap="nowrap" style="height: 100%; width: 56px;">
 																<table cellpadding="0" cellspacing="0">
 																	<tr>
-																		<td nowrap="nowrap" style="width: 16px;">
+																		<td align="center" nowrap="nowrap" style="width: 16px;">
 																			<img id="riichi_right" src="./assets/images/pai/3/riichi.png" class="riichi"/>
 																		</td>
 																		<td nowrap="nowrap">
@@ -376,13 +374,13 @@
 															</td>
 														</tr>
 														<tr>
-															<td nowrap="nowrap" style="height: 40px; width: 40px;">
+															<td nowrap="nowrap" style="height: 56px; width: 56px;">
 																&nbsp;
 															</td>
-															<td align="center" nowrap="nowrap" style="height: 40px; width: 100%;">
+															<td align="center" nowrap="nowrap" style="height: 56px; width: 100%;">
 																<table cellpadding="0" cellspacing="0">
 																	<tr>
-																		<td align="center" nowrap="nowrap" style="height: 16px; line-height: 0;">
+																		<td align="center" valign="middle" nowrap="nowrap" style="height: 16px; line-height: 0;">
 																			<img id="riichi_bottom" src="./assets/images/pai/0/riichi.png" class="riichi"/>
 																		</td>
 																	</tr>
@@ -393,7 +391,7 @@
 																	</tr>
 																</table>
 															</td>
-															<td nowrap="nowrap" valign="bottom" style="height: 40px; width: 40px;">
+															<td nowrap="nowrap" valign="bottom" style="height: 56px; width: 56px;">
 																<img id="sai1" src="./assets/images/pai/1/trans.png" class="sai">
 																<img id="sai2" src="./assets/images/pai/1/trans.png" class="sai">
 															</td>
@@ -708,37 +706,6 @@
 					</span>
 				</div>
 			</div>
-		</td>
-		<td nowrap="nowrap" valign="top" style="width: 200px;">
-			<table cellpadding="0" cellspacing="0" style="height: 100%; width: 100%;">
-				<tr>
-					<td nowrap="nowrap" style="height: 300px; width: 100%;">
-						<div class="chara chara_right">
-							<div id="chara_right" class="chara_img"></div>
-							<div class="chara_data">
-								<div align="right" id="chara_score_right" class="chara_score">&nbsp;</div>
-								<div align="right" id="chara_name_right" class="chara_name">&nbsp;</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td nowrap="nowrap" style="height: 100%; width: 100%;">
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<td nowrap="nowrap" style="height: 300px; width: 100%;">
-						<div class="chara chara_bottom">
-							<div id="chara_bottom" class="chara_img"></div>
-							<div class="chara_data">
-								<div align="right" id="chara_score_bottom" class="chara_score">&nbsp;</div>
-								<div align="right" id="chara_name_bottom" class="chara_name">&nbsp;</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-			</table>
 		</td>
 	</tr>
 </table>
