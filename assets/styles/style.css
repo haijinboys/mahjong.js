@@ -624,7 +624,7 @@ table {
 */
 @media screen and (max-width: 480px) {
 	.container {
-		transform: scale(0.6);
+		transform: scale(0.58);
 		transform-origin: 0 0;
 	}
 	.chara {
@@ -659,5 +659,8 @@ table {
 	}
 	.chara_name {
 		font-size: 12px;
+	}
+	#opening {
+		transform: scale(0.58);
 	}
 }
