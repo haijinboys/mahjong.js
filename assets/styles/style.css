@@ -605,6 +605,7 @@ table {
 		width: 120px;
 	}
 }
+/*
 @media screen and (max-width: 896px) and (orientation: landscape) {
 	.container {
 		transform: scale(0.45);
@@ -620,6 +621,7 @@ table {
 		width: 150px;
 	}
 }
+*/
 @media screen and (max-width: 480px) {
 	.container {
 		transform: scale(0.6);
