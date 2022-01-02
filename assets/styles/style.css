@@ -109,24 +109,23 @@ table {
 	background-size: cover;
 }
 #opening_title img {
-	animation: poyooon 1s linear 1s 1;
+	animation: poyooon 1s linear 0.5s 1;
 	position: absolute;
-	right: -100px;
-	top: 100px;
+	right: 40px;
+	top: 200px;
 }
 @keyframes poyooon {
 	0% { transform: scale(1.0, 1.0) translate(0%, 0%); }
-	10% { transform: scale(1.1, 0.9) translate(0%, 5%); }
-	40% { transform: scale(1.2, 0.8) translate(0%, 15%); }
+	10% { transform: scale(1.1, 0.9) translate(0%, 1.25%); }
+	40% { transform: scale(1.2, 0.8) translate(0%, 3.75%); }
 	50% { transform: scale(1.0, 1.0) translate(0%, 0%); }
-	60% { transform: scale(0.9, 1.2) translate(0%, -50%); }
-	75% { transform: scale(0.9, 1.2) translate(0%, -10%); }
-	85% { transform: scale(1.2, 0.8) translate(0%, 15%); }
+	60% { transform: scale(0.9, 1.2) translate(0%, -25%); }
+	75% { transform: scale(0.9, 1.2) translate(0%, -5%); }
+	85% { transform: scale(1.2, 0.8) translate(0%, 3.75%); }
 	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
 }
 #opening_title_logo {
 	font-family: "Segoe UI", "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
-	font-weight: 900;
 	margin-top: -200px;
 	position: absolute;
 	text-align: center;
@@ -135,7 +134,7 @@ table {
 }
 #opening_title_logo div {
 	color: #fff;
-	font-size: 32px;
+	font-size: 24px;
 }
 #opening_title_logo span {
 	color: #d93725;
@@ -153,10 +152,12 @@ table {
 	width: 100%;
 }
 #opening_title_menu > div > div {
+	background: rgba(0, 0, 0, 0.6);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 2;
 	margin-top: 80px;
+	padding: 1em;
 	text-align: left;
 }
 #opening_title_menu > div:last-child {
@@ -166,7 +167,7 @@ table {
 	right: 8px;
 }
 #eyecatch {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.6);
 	cursor: default;
 	display: none;
 	height: 100%;
@@ -197,7 +198,7 @@ table {
 	display: none;
 }
 .dialog_wrapper {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.6);
 	height: 400px;
 	left: 50%;
 	line-height: 1.6;
@@ -235,7 +236,7 @@ table {
 	-webkit-transform: translateY(-50%) translateX(-50%);
 }
 #ending {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.6);
 	display: none;
 	height: 100%;
 	left: 0;
@@ -274,12 +275,8 @@ table {
 	max-height: 48px;
 	max-width: 48px;
 }
-.pai_bottom {
-	transition-duration: 0.1s;
-}
 .pai_bottom:hover {
 	transform: scale(1.1);
-	transition-duration: 0.1s;
 }
 .riichi {
 	max-height: 68px;
