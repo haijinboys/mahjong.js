@@ -3675,29 +3675,6 @@ var MAHJONG = (function() {
 
 	initPaiSrc();
 
-	// 音声先読み
-	function initAudio() {
-		for (var i = 0; i < 6; i++) {
-			(new Audio()).src = wavPath + "sound" + (i + 1) + ".wav";
-		}
-		for (var i = 0; i < 37; i++) {
-			(new Audio()).src = wavPath + "voice" + (i + 1) + ".wav";
-		}
-		(new Audio()).src = wavPath + "bonus/bonus11.wav";
-		(new Audio()).src = wavPath + "bonus/bonus12.wav";
-		(new Audio()).src = wavPath + "bonus/bonus21.wav";
-		(new Audio()).src = wavPath + "bonus/bonus22.wav";
-		(new Audio()).src = wavPath + "bonus/bonus31.wav";
-		(new Audio()).src = wavPath + "bonus/bonus32.wav";
-		(new Audio()).src = wavPath + "bonus/bonus41.wav";
-		(new Audio()).src = wavPath + "bonus/bonus42.wav";
-		(new Audio()).src = mp3Path + "audio1.mp3";
-		(new Audio()).src = mp3Path + "audio2.mp3";
-	}
-
-	initPaiSrc();
-	initAudio();
-
 	// オープニング
 	function doOpening() {
 		stopAudio();
