@@ -123,8 +123,7 @@ table {
 }
 @keyframes poyooon {
 	0%   { transform: scale(1.0); }
-	50%  { transform: scale(1.2); }
-	100% { transform: scale(1.0); }
+	100% { transform: scale(1.2); }
 }
 .naki_top {
 	left: -72px;
