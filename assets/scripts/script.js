@@ -415,6 +415,7 @@ var MAHJONG = (function() {
 		this.enabled = false;
 		this.ippatsu = false;
 		this.naki = false;
+		this.noten = false;
 	}
 
 	var yakuData = function(arg1, arg2) {
@@ -1421,6 +1422,27 @@ var MAHJONG = (function() {
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
+			playerList[arg1].sort();
+			playerTsumo = startPaiMax;
+			return;
+		}
+		*/
+		/*
+		if (arg1 == playerUser) {
+			// バグ
+			getPai(arg1, paiCategoryManzu, paiIdx2);
+			getPai(arg1, paiCategoryManzu, paiIdx3);
+			getPai(arg1, paiCategoryManzu, paiIdx4);
+			getPai(arg1, paiCategoryPinzu, paiIdx3);
+			getPai(arg1, paiCategoryPinzu, paiIdx4);
+			getPai(arg1, paiCategoryPinzu, paiIdx5);
+			getPai(arg1, paiCategorySouzu, paiIdx2);
+			getPai(arg1, paiCategorySouzu, paiIdx4);
+			getPai(arg1, paiCategorySouzu, paiIdx5);
+			getPai(arg1, paiCategorySouzu, paiIdx5);
+			getPai(arg1, paiCategorySouzu, paiIdx6);
+			getPai(arg1, paiCategorySouzu, paiIdx7);
+			getPai(arg1, paiCategorySouzu, paiIdx8);
 			playerList[arg1].sort();
 			playerTsumo = startPaiMax;
 			return;
@@ -2502,6 +2524,7 @@ var MAHJONG = (function() {
 		playerRiichi[arg1].enabled = true;
 		playerRiichi[arg1].ippatsu = true;
 		playerRiichi[arg1].naki = false;
+		playerRiichi[arg1].noten = !chkTenpai(arg1);
 		playerRiichi[arg1].idx = Math.floor((tsumoMax - paiCnt) / playerMax);
 	}
 
@@ -2509,6 +2532,7 @@ var MAHJONG = (function() {
 	function clearRiichi(arg1) {
 		playerRiichi[arg1].enabled = false;
 		playerRiichi[arg1].ippatsu = false;
+		playerRiichi[arg1].noten = false;
 	}
 
 	// 立直(一発)全クリア
@@ -2882,14 +2906,13 @@ var MAHJONG = (function() {
 
 	// 場を確認
 	function chkField(arg1, arg2, arg3) {
-		var tmpRiichi = playerRiichi[arg1].enabled && chkTenpai(arg1);
-		if (tmpRiichi) {
+		if (playerRiichi[arg1].enabled && !playerRiichi[arg1].noten) {
 			if (playerRiichi[arg1].idx == 0)
 				addYaku("ダブル立直");
 			else
 				addYaku("立直");
 		}
-		if (tmpRiichi && playerRiichi[arg1].ippatsu)
+		if (playerRiichi[arg1].enabled && !playerRiichi[arg1].noten && playerRiichi[arg1].ippatsu)
 			addYaku("一発");
 		if (!arg3 && !chkNaki())
 			addYaku("門前清自摸和");

@@ -118,7 +118,13 @@ table {
 	z-index: 9999;
 }
 .pai:hover {
-	transform: scale(1.1);
+	/* transform: scale(1.1); */
+	animation: poyooon 0.1s linear 0s 1;
+}
+@keyframes poyooon {
+	0%   { transform: scale(1.0); }
+	50%  { transform: scale(1.2); }
+	100% { transform: scale(1.0); }
 }
 .naki_top {
 	left: -72px;
