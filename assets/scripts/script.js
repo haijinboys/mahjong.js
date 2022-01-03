@@ -5,7 +5,7 @@ var MAHJONG = (function() {
 	var imgPath = "./assets/images/";
 	var wavPath = "./assets/wav/";
 	var mp3Path = "./assets/mp3/";
-	var timerInterval = 200;
+	var timerInterval = 300;
 
 	// 定数
 	var paiMax = 136;
@@ -540,7 +540,7 @@ var MAHJONG = (function() {
 
 	// リーチ表示
 	function showRiichi(arg1) {
-		$("#" + riichiIdTbl[arg1]).fadeIn("fast");
+		$("#" + riichiIdTbl[arg1]).css("visibility", "visible");
 	}
 
 	// 対局結果表示
@@ -682,7 +682,7 @@ var MAHJONG = (function() {
 				$("#" + fieldIdTbl[i] + p).attr("src", getTransSrc(i));
 			for (var p = 1; p <= 20; p++)
 				$("#" + nakiIdTbl[i] + p).attr("src", getTransSrc(i));
-			$("#" + riichiIdTbl[i]).hide();
+			$("#" + riichiIdTbl[i]).css("visibility", "hidden");
 		}
 		for (var i = 0; i < playerMax; i++)
 			fieldCnt[i] = 0;
@@ -916,11 +916,11 @@ var MAHJONG = (function() {
 	function getPlayerCnt(arg1) {
 		var i;
 		for (i = 0; i < playerSekiList.length; i++)
-			if (playerSekiList[i] === playerUser)
+			if (playerSekiList[i] == playerUser)
 				break;
 		var p = i;
 		for (i = 0; i < playerMax; i++) {
-			if (p === arg1)
+			if (p == arg1)
 				break;
 			p++;
 			if (p >= playerMax)
@@ -1421,6 +1421,27 @@ var MAHJONG = (function() {
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
+			playerList[arg1].sort();
+			playerTsumo = startPaiMax;
+			return;
+		}
+		*/
+		/*
+		if (arg1 == playerUser) {
+			// バグ
+			getPai(arg1, paiCategoryManzu, paiIdx2);
+			getPai(arg1, paiCategoryManzu, paiIdx5);
+			getPai(arg1, paiCategoryManzu, paiIdx5);
+			getPai(arg1, paiCategoryManzu, paiIdx6);
+			getPai(arg1, paiCategoryManzu, paiIdx7);
+			getPai(arg1, paiCategoryPinzu, paiIdx5);
+			getPai(arg1, paiCategoryPinzu, paiIdx6);
+			getPai(arg1, paiCategoryPinzu, paiIdx7);
+			getPai(arg1, paiCategoryPinzu, paiIdx7);
+			getPai(arg1, paiCategoryPinzu, paiIdx8);
+			getPai(arg1, paiCategorySouzu, paiIdx3);
+			getPai(arg1, paiCategorySouzu, paiIdx4);
+			getPai(arg1, paiCategorySouzu, paiIdx5);
 			playerList[arg1].sort();
 			playerTsumo = startPaiMax;
 			return;
@@ -2882,13 +2903,14 @@ var MAHJONG = (function() {
 
 	// 場を確認
 	function chkField(arg1, arg2, arg3) {
-		if (playerRiichi[arg1].enabled) {
+		var tmpRiichi = playerRiichi[arg1].enabled && chkTenpai(arg1);
+		if (tmpRiichi) {
 			if (playerRiichi[arg1].idx == 0)
 				addYaku("ダブル立直");
 			else
 				addYaku("立直");
 		}
-		if (playerRiichi[arg1].enabled && playerRiichi[arg1].ippatsu)
+		if (tmpRiichi && playerRiichi[arg1].ippatsu)
 			addYaku("一発");
 		if (!arg3 && !chkNaki())
 			addYaku("門前清自摸和");
@@ -3877,7 +3899,6 @@ var MAHJONG = (function() {
 			chkMachi(playerUser);
 			if (!chkNaki()) {
 				isRiichi = true;
-				//
 			}
 		}
 	});

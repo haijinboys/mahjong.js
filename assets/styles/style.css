@@ -140,6 +140,22 @@ table {
 	right: 120px;
 	z-index: 1;
 }
+.naki_top img,
+.pai_top img {
+	vertical-align: top;
+}
+.naki_left img,
+.pai_left img {
+	text-align: left;
+}
+.naki_right img,
+.pai_right img {
+	text-align: right;
+}
+.naki_bottom img,
+.pai_bottom img {
+	vertical-align: bottom;
+}
 .yama_table {
 	height: 100%;
 	width: 100%;
@@ -199,6 +215,19 @@ table {
 }
 .field td {
 	line-height: 0;
+}
+.field_top img {
+	vertical-align: bottom;
+}
+.field_bottom img {
+	vertical-align: top;
+}
+.field_top {
+	margin-left: -16px;
+}
+.field_left,
+.field_right {
+	height: 256px;
 }
 .data_table {
 	/* background: rgba(0, 0, 0, 0.2); */
@@ -261,7 +290,7 @@ table {
 #riichi_right,
 #riichi_top,
 #riichi_left {
-	display: none;
+	visibility: hidden;
 }
 .riichi {
 	max-height: 68px;
