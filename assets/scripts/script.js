@@ -759,10 +759,10 @@ var MAHJONG = (function() {
 		else
 			s = "";
 		$("#eyecatch_renchan_cnt").html(s);
-		$("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
+		// $("#eyecatch").fadeIn("fast").delay(2000).fadeOut("fast", function() {
 			timerEnabled = true;
 			timerId = setTimeout(timer, timerInterval);
-		});
+		// });
 	}
 
 	// ゲーム終了
@@ -1421,27 +1421,6 @@ var MAHJONG = (function() {
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
 			getPai(arg1, paiCategorySangen, paiIdx2);
-			playerList[arg1].sort();
-			playerTsumo = startPaiMax;
-			return;
-		}
-		*/
-		/*
-		if (arg1 == playerUser) {
-			// バグ
-			getPai(arg1, paiCategoryManzu, paiIdx2);
-			getPai(arg1, paiCategoryManzu, paiIdx5);
-			getPai(arg1, paiCategoryManzu, paiIdx5);
-			getPai(arg1, paiCategoryManzu, paiIdx6);
-			getPai(arg1, paiCategoryManzu, paiIdx7);
-			getPai(arg1, paiCategoryPinzu, paiIdx5);
-			getPai(arg1, paiCategoryPinzu, paiIdx6);
-			getPai(arg1, paiCategoryPinzu, paiIdx7);
-			getPai(arg1, paiCategoryPinzu, paiIdx7);
-			getPai(arg1, paiCategoryPinzu, paiIdx8);
-			getPai(arg1, paiCategorySouzu, paiIdx3);
-			getPai(arg1, paiCategorySouzu, paiIdx4);
-			getPai(arg1, paiCategorySouzu, paiIdx5);
 			playerList[arg1].sort();
 			playerTsumo = startPaiMax;
 			return;
@@ -3700,6 +3679,7 @@ var MAHJONG = (function() {
 	// オープニング
 	function doOpening() {
 		stopAudio();
+		$("#opening").delay(500);
 		$("#opening").fadeIn("fast", function() {
 			$("#opening_credits").fadeIn("slow").delay(3000).fadeOut("slow", function() {
 				$("#opening_title").fadeIn("slow", function() {
@@ -3734,7 +3714,8 @@ var MAHJONG = (function() {
 	var effectFps = 15;
 	var nowFrame = 0;
 	var maxFrame = 0;
-	var paiSize = [24, 32];
+	var paiSize1 = [24, 32];
+	var paiSize2 = [32, 48];
 
 	(new Image).src = imgPath + "effect/pipo-mapeffect001.png";
 	(new Image).src = imgPath + "effect/pipo-mapeffect002.png";
@@ -3751,17 +3732,19 @@ var MAHJONG = (function() {
 
 	function playEffect1(arg1, arg2) {
 		var pos = $(arg2).offset();
+		pos.left = pos.left / scaleX - transX / scaleX;
+		pos.top = pos.top / scaleY - transY / scaleY;
 		var src = imgPath + "effect/pipo-mapeffect001.png";
 		var offsetLeft = 0;
 		var offsetTop = -180;
-		var paiWidth = paiSize[arg1 % 2];
-		var paiHeight = paiSize[Math.floor(arg1 / 2)];
+		var paiWidth = paiSize1[arg1 % 2];
+		var paiHeight = paiSize1[Math.floor(arg1 / 2)];
 		effectWidth = 480;
 		effectHeight = 480;
 		maxFrame = 8;
 		nowFrame = 0;
 		playSound(wavPath + "sound6.wav");
-		$("#effect").css({ left: pos.left - (effectWidth / 2) + (paiWidth / 2) + offsetLeft, top: (pos.top - (effectHeight / 2) + (paiHeight / 2) + offsetTop) }).show();
+		$("#effect").css({ left: (pos.left - (effectWidth / 2) + (paiWidth / 2) + offsetLeft), top: (pos.top - (effectHeight / 2) + (paiHeight / 2) + offsetTop) }).show();
 		$("#effect").css({ background: "url(" + src + ")", width: effectWidth, height: effectHeight });
 		effectTimerId = setInterval(effectTimer, 1 / effectFps * 1000);
 	}
@@ -3769,16 +3752,23 @@ var MAHJONG = (function() {
 	function playEffect2(arg1, arg2) {
 		var pos = $(arg2).offset();
 		var src = imgPath + "effect/pipo-mapeffect002.png";
+		pos.left = pos.left / scaleX - transX / scaleX;
+		pos.top = pos.top / scaleY - transY / scaleY;
 		var offsetLeft = 0;
 		var offsetTop = 0;
-		var paiWidth = paiSize[arg1 % 2];
-		var paiHeight = paiSize[Math.floor(arg1 / 2)];
+		if (arg1 == playerUser) {
+			var paiWidth = paiSize2[arg1 % 2];
+			var paiHeight = paiSize2[Math.floor(arg1 / 2)];
+		} else {
+			var paiWidth = paiSize1[arg1 % 2];
+			var paiHeight = paiSize1[Math.floor(arg1 / 2)];
+		}
 		effectWidth = 312;
 		effectHeight = 312;
 		maxFrame = 15;
 		nowFrame = 0;
 		playSound(wavPath + "sound7.wav");
-		$("#effect").css({ left: pos.left - (effectWidth / 2) + (paiWidth / 2) + offsetLeft, top: (pos.top - (effectHeight / 2) + (paiHeight / 2) + offsetTop) }).show();
+		$("#effect").css({ left: (pos.left - (effectWidth / 2) + (paiWidth / 2) + offsetLeft), top: (pos.top - (effectHeight / 2) + (paiHeight / 2) + offsetTop) }).show();
 		$("#effect").css({ background: "url(" + src + ")", width: effectWidth, height: effectHeight });
 		effectTimerId = setInterval(effectTimer, 1 / effectFps * 1000);
 	}

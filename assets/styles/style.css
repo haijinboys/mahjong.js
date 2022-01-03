@@ -1,14 +1,18 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	min-height: 100%;
 }
 html,
 body {
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 }
 body {
-	background: url(../images/bg_abstract1_blue.png) no-repeat center center fixed; 
+	background: #000;
 	color: #fff;
 	font-family: "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
 	font-size: 18px;
@@ -17,10 +21,6 @@ body {
 	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-webkit-text-size-adjust: 100%;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 }
 a {
 	color: #fff;
@@ -32,6 +32,8 @@ img {
 }
 table {
 	/* border: 1px solid #0f0; */
+	border-collapse: collapse;
+	border-spacing: 0;
 	table-layout: fixed;
 }
 .clearfix:before,
@@ -50,6 +52,8 @@ table {
 	zoom: 1;
 }
 .container {
+	background: url(../images/bg_abstract1_blue.png) no-repeat center center; 
+	background-size: 100% 100%;
 	height: 100%;
 	width: 100%;
 }
@@ -66,9 +70,6 @@ table {
 .tehai_table {
 	height: 640px;
 	width: 640px;
-}
-.tehai_table * {
-
 }
 .tehai_table > tbody > tr:first-child > td {
 	height: 40px;
@@ -222,6 +223,9 @@ table {
 .field_bottom img {
 	vertical-align: top;
 }
+.field_bottom td {
+	text-align: left;
+}
 .field_top {
 	margin-left: -16px;
 }
@@ -332,7 +336,6 @@ table {
 	display: none;
 	font-size: 24px;
 	height: 100%;
-	position: relative;
 	text-align: center;
 	width: 100%;
 }
@@ -344,23 +347,26 @@ table {
 	border-bottom: 2px solid #d93725;
 }
 #opening_credits > div {
-	display: inline-block;
-	margin: 5em 0;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
 }
 #opening_credits > div > div:first-child {
 	font-size: 1em;
 	margin-bottom: 1em;
 }
 #opening_credits > div > div:first-child span {
-	font-size: 0.5em;
+	font-size: 12px;
 }
 #opening_credits > div > div:last-child p {
-	font-size: 1em;
+	font-size: 16px;
 	line-height: 1.6;
 	margin: 1em 0;
 }
 #opening_credits > div > div:last-child p span {
-	font-size: 0.7em;
+	font-size: 12px;
 }
 #opening_credits > div > div:last-child > div {
 	display: inline-block;
@@ -368,23 +374,20 @@ table {
 	text-align: left;
 }
 #opening_title {
-	background: url(../images/bg_abstract2_green.png) no-repeat center center fixed; 
+	background: url(../images/bg_abstract2_green.png) no-repeat center center; 
+	background-size: 100% 100%;
 	display: none;
 	height: 100%;
 	width: 100%;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 }
 #opening_title img {
 	animation: anime_right 3s ease infinite;
 	position: absolute;
 	right: 40px;
-	top: 200px;
+	top: 180px;
 }
 #opening_title_logo {
-	margin-top: -200px;
+	margin-top: -160px;
 	position: absolute;
 	text-align: center;
 	top: 50%;
@@ -493,6 +496,15 @@ table {
 	transform: translateY(-50%) translateX(-50%);
 	-webkit-transform: translateY(-50%) translateX(-50%);
 }
+#bonus img {
+	animation: anime_bonus 7s ease infinite;
+	overflow: hidden;
+}
+@keyframes anime_bonus {
+    0% { transform: rotate(0.2deg) scaleX(1) scaleY(1) translate3d(0, 0, 0); }
+    50% { transform: rotate(0deg) scaleX(1.02) scaleY(1.02) translate3d(0, -1px, 0); }
+    100% { transform: rotate(0.2deg) scaleX(1) scaleY(1) translate3d(0, 0, 0); }
+}
 #ending {
 	background: rgba(0, 0, 0, 0.6);
 	display: none;
@@ -514,7 +526,7 @@ table {
 #effect {
 	display: none;
 	position: absolute;
-	z-index: 9;
+	z-index: 10000;
 }
 #dialog img {
 	max-height: 32px;
@@ -523,7 +535,7 @@ table {
 .chara {
 	/* background: rgba(0, 0, 0, 0.4); */
 	overflow: hidden;
-	position: absolute;
+	position: fixed;
 	height: 300px;
 	width: 200px;
 	z-index: 0;
@@ -550,8 +562,23 @@ table {
 	height: 400px;
 	width: 200px;
 }
+.chara_data {
+	bottom: 0px;
+	position: absolute;
+	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
+	width: 100%;
+}
+.chara_data div {
+	padding: 2px 8px;
+}
+.chara_score {
+	font-size: 24px;
+}
+.chara_name {
+	font-size: 16px;
+}
 #chara_top {
-	animation: anime_top 3s ease infinite;
+	animation: anime_top 3.3s ease infinite;
 	transform-origin: 50% 50%;
 }
 @keyframes anime_top {
@@ -560,7 +587,7 @@ table {
     100% { transform: rotate(0.2deg) scaleX(-1.02) scaleY(1.02) translate3d(0, 0, 0); }
 }
 #chara_left {
-	animation: anime_left 3s ease infinite;
+	animation: anime_left 3.5s ease infinite;
 	transform-origin: 50% 50%;
 }
 @keyframes anime_left {
@@ -578,7 +605,7 @@ table {
     100% { transform: rotate(0deg) scaleX(1) scaleY(1) translate3d(0, 0, 0); }
 }
 #chara_bottom {
-	animation: anime_bottom 3s ease infinite;
+	animation: anime_bottom 3.2s ease infinite;
 	transform-origin: 50% 50%;
 }
 @keyframes anime_bottom {
@@ -605,102 +632,12 @@ table {
 .valign_bottom {
 	vertical-align: bottom;
 }
-.chara_data {
-	bottom: 0px;
-	position: absolute;
-	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
-	width: 100%;
-}
-.chara_data div {
-	padding: 2px 8px;
-}
-.chara_score {
-	font-size: 24px;
-}
-.chara_name {
-	font-size: 16px;
-}
 #pai_cnt {
 	font-size: 20px;
 }
-@media screen and (max-width: 1000px) {
-	.chara {
-		height: 250px;
-		width: 160px;
-	}
-	.chara_img {
-		background-size: 200px auto;
-		height: 350px;
-		width: 160px;
-	}
-}
-@media screen and (max-width: 840px) {
-	.chara {
-		height: 200px;
-		width: 120px;
-	}
-	.chara_img {
-		background-size: 140px auto;
-		height: 300px;
-		width: 120px;
-	}
-}
-/*
-@media screen and (max-width: 896px) and (orientation: landscape) {
-	.container {
-		transform: scale(0.45);
-		transform-origin: 50% 5%;
-	}
-	.chara {
-		height: 150px;
-		width: 150px;
-	}
-	.chara_img {
-		background-size: 150px auto;
-		height: 200px;
-		width: 150px;
-	}
-}
-*/
-@media screen and (max-width: 480px) {
-	.container {
-		transform: scale(0.58);
-		transform-origin: 0 0;
-	}
-	.chara {
-		height: 160px;
-		width: 100px;
-	}
-	.chara_img {
-		background-size: 100px auto;
-		height: 260px;
-		width: 100px;
-	}
-	.chara_top {
-		bottom: 0;
-		left: 90px;
-		top: auto;
-	}
-	.chara_left {
-		left: 0;
-		bottom: 0;
-	}
-	.chara_right {
-		bottom: 0;
-		right: 90px;
-		top: auto;
-	}
-	.chara_bottom {
-		bottom: 0;
-		right: 0;
-	}
-	.chara_score {
-		font-size: 20px;
-	}
-	.chara_name {
-		font-size: 12px;
-	}
-	#opening_credits {
-		font-size: 16px;
-	}
+#fill {
+	display: block;
+	height: 648px;
+	overflow: hidden;
+	width: 1080px;
 }
