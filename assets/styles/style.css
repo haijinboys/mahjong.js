@@ -117,11 +117,6 @@ table {
 	top: -48px;
 	z-index: 9999;
 }
-@media (hover: hover) and (pointer: fine) {
-.pai:hover {
-	transform: scale(1.1);
-}
-}
 .naki_top {
 	left: -72px;
 	position: relative;
@@ -642,4 +637,9 @@ table {
 	height: 648px;
 	overflow: hidden;
 	width: 1080px;
+}
+@media (hover: hover) and (pointer: fine) {
+	.pai:hover {
+		transform: scale(1.1);
+	}
 }
