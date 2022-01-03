@@ -481,7 +481,7 @@ var MAHJONG = (function() {
 		$("#chara_left").css({ "background-image" : "url(" + imgPath + "chara/" + playerGraphicList[playerNameList[i]][j] + ")" });
 		$("#chara_name_left").html(playerNameList[i]);
 		for (i = 0; i < playerMax; i++) {
-			switch (getPlayerCnt(oyaCnt + i)) {
+			switch (getPlayerCnt((oyaCnt + i) % nanpuSen)) {
 				case playerUser:
 					$("#kaze_bottom").html(kazeStrTbl[i]);
 					break;
@@ -916,11 +916,11 @@ var MAHJONG = (function() {
 	function getPlayerCnt(arg1) {
 		var i;
 		for (i = 0; i < playerSekiList.length; i++)
-			if (playerSekiList[i] == playerUser)
+			if (playerSekiList[i] === playerUser)
 				break;
 		var p = i;
 		for (i = 0; i < playerMax; i++) {
-			if (p == arg1)
+			if (p === arg1)
 				break;
 			p++;
 			if (p >= playerMax)
@@ -3678,9 +3678,11 @@ var MAHJONG = (function() {
 	// オープニング
 	function doOpening() {
 		stopAudio();
-		$("#opening_credits").fadeIn("slow").delay(3000).fadeOut("slow", function() {
-			$("#opening_title").fadeIn("slow", function() {
-				// playAudio(mp3Path + "");
+		$("#opening").fadeIn("fast", function() {
+			$("#opening_credits").fadeIn("slow").delay(3000).fadeOut("slow", function() {
+				$("#opening_title").fadeIn("slow", function() {
+					// playAudio(mp3Path + "");
+				});
 			});
 		});
 	}
@@ -3963,7 +3965,7 @@ var MAHJONG = (function() {
 	// 「もう一勝負、お願いします！」クリック時
 	$("#ending_next").click(function() {
 		playSound(wavPath + "sound2.wav");
-		$("#ending").hide("fast", function() {
+		$("#ending").fadeOut("fast", function() {
 			newGame();
 			if (!gameExit)
 				startGame();
@@ -3973,9 +3975,7 @@ var MAHJONG = (function() {
 	// 「もういいよっ！！」クリック時
 	$("#ending_exit").click(function() {
 		playSound(wavPath + "sound2.wav");
-		$("#ending").hide("fast");
-		$("#ending").hide("fast", function() {
-			doOpening();
-		});
+		$("#ending").fadeOut("fast");
+		doOpening();
 	});
 }());
