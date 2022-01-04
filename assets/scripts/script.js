@@ -913,7 +913,7 @@ var MAHJONG = (function() {
 		}
 	}
 
-	// プレイヤー位置取得
+	// 親の位置取得
 	function getPlayerCnt(arg1) {
 		var i;
 		for (i = 0; i < playerSekiList.length; i++)
@@ -1344,7 +1344,7 @@ var MAHJONG = (function() {
 	function getStartPai(arg1) {
 		// デバッグ(B)
 		/*
-		if (arg1 == playerUser) {
+		if (arg1 == player1) {
 			// 平和
 			getPai(arg1, paiCategoryManzu, paiIdx3);
 			getPai(arg1, paiCategoryManzu, paiIdx4);
@@ -1567,7 +1567,6 @@ var MAHJONG = (function() {
 					} else {
 						showPai(arg1, false);
 						doRon(tmpPlayer, arg1, idx);
-						endGame(tmpPlayer);
 						return;
 					}
 				}
@@ -1833,7 +1832,6 @@ var MAHJONG = (function() {
 	function aiPlayer(arg1) {
 		if (chkTsumo(arg1)) {
 			doTsumo(arg1);
-			endGame(arg1);
 			return;
 		}
 		if (!playerRiichi[arg1].enabled) {
@@ -1898,6 +1896,8 @@ var MAHJONG = (function() {
 
 	// ロン
 	function doRon(arg1, arg2, arg3) {
+		gameStart = false;
+		gameEnd = true;
 		playerList[arg1].push(paiList[arg3] + ":" + paiList[arg3].idx + ":" + "A" + ":" + arg3);
 		setTimeout(function() {
 			prevScoreList = scoreList.slice();
@@ -1935,6 +1935,8 @@ var MAHJONG = (function() {
 
 	// ツモ
 	function doTsumo(arg1) {
+		gameStart = false;
+		gameEnd = true;
 		setTimeout(function() {
 			prevScoreList = scoreList.slice();
 			if (playerRiichi[arg1].enabled)
@@ -3935,10 +3937,8 @@ var MAHJONG = (function() {
 	$("#btn_tsumo").click(function() {
 		playSound(wavPath + "sound2.wav");
 		hidePlayerMenu();
-		if (chkTsumo(playerUser)) {
+		if (chkTsumo(playerUser))
 			doTsumo(playerUser);
-			endGame(playerUser);
-		}
 	});
 
 	// チークリック時
