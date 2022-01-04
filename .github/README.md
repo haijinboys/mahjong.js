@@ -65,8 +65,8 @@ JavaScript も麻雀も初心者なので、役の判定が違っていたり、
   - 背景: [いらすとや](https://www.irasutoya.com/)
   - エフェクト素材: [ぴぽや](https://pipoya.net/sozai/)
   - 麻雀牌素材: [モゲラ](http://mogera.jp/)
-  - 牌の音素材: [ノタの森](http://notanomori.net/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.ja))
-  - BGM と効果音: [ポケット効果音](https://sonicwire.com/product/maker/164615)
+  - 音素材: [ノタの森](http://notanomori.net/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.ja))
+  - BGM・効果音: [ポケット効果音](https://sonicwire.com/product/maker/164615)
 - 暮井慧の音声は、許諾を得て利用しています (許諾番号: 75)
 - 音声の抽出や加工を行い公開するなどの二次的利用を禁止します
 - 美雲このはちゃんの掛け声はプロ生ちゃんが代わりに言ってます
