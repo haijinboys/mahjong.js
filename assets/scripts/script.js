@@ -3698,7 +3698,21 @@ var MAHJONG = (function() {
 		}
 	}
 
+	function initGraphic() {
+		for (var i in playerGraphicList) {
+			for (var j = 0; j < playerGraphicList[i].length; j++) {
+				(new Image()).src = imgPath + 'chara/' + playerGraphicList[i][j];
+			}
+		}
+		for (var i in playerBonusList) {
+			for (var j = 0; j < playerBonusList[i].length; j++) {
+				(new Image()).src = imgPath + 'bonus/' + playerBonusList[i][j] + ".png";
+			}
+		}
+	}
+
 	initPaiSrc();
+	initGraphic();
 
 	// オープニング
 	function doOpening() {
