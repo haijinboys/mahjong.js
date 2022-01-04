@@ -33,7 +33,7 @@ img {
 	margin: 0;
 }
 table {
-	/* border: 1px solid #0f0; */
+	border: 1px solid #0f0;
 	border-collapse: collapse;
 	border-spacing: 0;
 	table-layout: fixed;
@@ -618,6 +618,9 @@ table {
 .align_center2 {
 	margin-left: auto;
 	margin-right: auto;
+}
+.align_left {
+	text-align: left;
 }
 .align_right {
 	text-align: right;
