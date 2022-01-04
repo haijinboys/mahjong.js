@@ -15,7 +15,7 @@ body {
 	background: #000;
 	color: #fff;
 	font-family: "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 	overflow: hidden;
 	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
@@ -23,8 +23,10 @@ body {
 	-webkit-text-size-adjust: 100%;
 }
 a {
+	background: rgba(0, 0, 0, 0.6);
 	color: #fff;
 	cursor: pointer;
+	padding: 0.4em;
 	text-decoration: none;
 }
 img {
@@ -224,11 +226,14 @@ table {
 	text-align: left;
 }
 .field_top {
-	margin-left: -16px;
+	margin-left: 16px;
 }
 .field_left,
 .field_right {
 	height: 256px;
+}
+.field_bottom {
+	margin-left: 8px;
 }
 .data_table {
 	/* background: rgba(0, 0, 0, 0.2); */
@@ -338,6 +343,7 @@ table {
 }
 #opening_credits a {
 	border-bottom: 2px solid #fff;
+	padding: 0.1em;
 }
 #opening_credits a:hover {
 	color: #d93725;
@@ -403,17 +409,14 @@ table {
 	margin-top: 40px;
 	position: absolute;
 	text-align: center;
-	text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
 	top: 50%;
 	width: 100%;
 }
 #opening_title_menu > div > div {
-	background: rgba(0, 0, 0, 0.6);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 2;
 	margin-top: 80px;
-	padding: 1em;
 	text-align: left;
 }
 #opening_title_menu > div:last-child {
@@ -443,7 +446,6 @@ table {
 	-webkit-transform: translateY(-50%) translateX(-50%);
 }
 .player_menu {
-	padding: 4px;
 	position: absolute;
 	right: 80px;
 	bottom: 100px;
@@ -471,8 +473,8 @@ table {
 	padding: 8px;
 }
 #dialog_next {
-	border-bottom: 2px solid #fff;
 	bottom: 8px;
+	line-height: 1;
 	position: absolute;
 	right: 8px;
 }

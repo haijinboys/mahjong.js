@@ -1429,7 +1429,7 @@ var MAHJONG = (function() {
 		*/
 		/*
 		if (arg1 == playerUser) {
-			// バグ
+			// あがれない？
 			getPai(arg1, paiCategoryManzu, paiIdx2);
 			getPai(arg1, paiCategoryManzu, paiIdx3);
 			getPai(arg1, paiCategoryManzu, paiIdx4);
@@ -1991,6 +1991,7 @@ var MAHJONG = (function() {
 	function doRenchan(arg1) {
 		renchanCnt++;
 		if (oyaCnt < nanpuSen && !arg1) {
+			renchanCnt = 0;
 			oyaCnt++;
 			if (oyaCnt == nanpuSen)
 				oyaCnt = 0;
@@ -2265,7 +2266,7 @@ var MAHJONG = (function() {
 			}).delay(4000).fadeOut("slow");
 			setTimeout(bonusTimer, 4800);
 		} else {
-			$("#bonus").hide();
+			$("#bonus").fadeOut("fast");
 		}
 		bonusIdx++;
 	}
